@@ -1,6 +1,6 @@
 ## GraphQL Full Stack Applicaiton
 
-- Front end : React
+- Front end : React, Apollo
 - Back end : Express, graphql
 - Database : MongoDB
 
