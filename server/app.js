@@ -3,11 +3,14 @@ const express = require("express");
 const graphqlHTTP = require("express-graphql");
 const schema = require("./schema/schema");
 const mongoose = require("mongoose");
+const cors = require('cors');
 
 const app = express();
 
-// connect to mlab database
+// allow cross-origin requests
+app.use(cors());
 
+// connect to mlab database
 mongoose.connect(
   `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@gql-fs-lou7v.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
   { useUnifiedTopology: true, useNewUrlParser: true }
