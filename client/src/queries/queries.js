@@ -10,12 +10,14 @@ const getAuthorsQuery = gql`
 `;
 
 const getBooksQuery = gql`
-  {
-    books {
-      name
-      id
-    }
+query books {
+  books {
+    id
+    name
+    genre
+    authorId
   }
+}
 `;
 
 const addBookMutation = gql`
@@ -27,21 +29,31 @@ const addBookMutation = gql`
   }
 `;
 
+// const getBookQuery = gql`
+//   query book($id: String!) {
+//     book(id: $id) {
+//       id
+//       name
+//       genre
+//       author {
+//         name
+//         age
+//         id
+//         book {
+//           name
+//           id
+//         }
+//       }
+//     }
+//   }
+// `;
+
 const getBookQuery = gql`
-  query($id: ID) {
+  query book($id: String!) {
     book(id: $id) {
       id
       name
       genre
-      author {
-        name
-        age
-        id
-        book {
-          name
-          id
-        }
-      }
     }
   }
 `;
